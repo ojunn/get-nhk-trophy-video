@@ -1,0 +1,31 @@
+openssl enc -d -aes-128-cbc  -in S9MXGB~T  -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 1 -out 1
+
+openssl enc -d -aes-128-cbc  -in segment1_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 1 -out 1_0_av.ts
+openssl enc -d -aes-128-cbc  -in segment2_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 2 -out 2_0_av.ts
+openssl enc -d -aes-128-cbc  -in segment3_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 3 -out 3_0_av.ts
+openssl enc -d -aes-128-cbc  -in segment4_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 4 -out 4_0_av.ts
+openssl enc -d -aes-128-cbc  -in segment5_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 5 -out 5_0_av.ts
+openssl enc -d -aes-128-cbc  -in segment6_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 6 -out 6_0_av.ts
+openssl enc -d -aes-128-cbc  -in segment7_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 7 -out 7_0_av.ts
+openssl enc -d -aes-128-cbc  -in segment8_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 8 -out 8_0_av.ts
+openssl enc -d -aes-128-cbc  -in segment9_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 9 -out 9_0_av.ts
+
+cat \
+ 1_0_av.ts \
+ 2_0_av.ts \
+ 3_0_av.ts \
+ 4_0_av.ts \
+ 5_0_av.ts \
+ 6_0_av.ts \
+ 7_0_av.ts \
+ 8_0_av.ts \
+ 9_0_av.ts \
+> av.ts
+
+
+
+openssl enc -d -aes-128-cbc  -in segment1_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 1 |md5sum
+openssl enc -d -aes-128-cbc  -in segment1_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 2 |md5sum
+openssl enc -d -aes-128-cbc  -in segment1_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 3 |md5sum
+openssl enc -d -aes-128-cbc  -in segment1_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 4 |md5sum
+openssl enc -d -aes-128-cbc  -in segment1_0_av.ts -K $(cat crypt.key | hexdump -e '16/1 "%02x"') -iv 5 |md5sum
